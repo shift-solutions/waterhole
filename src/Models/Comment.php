@@ -17,7 +17,7 @@ use Waterhole\Scopes\CommentIndexScope;
 use Waterhole\View\Components;
 use Waterhole\View\TurboStream;
 
-use function Tonysm\TurboLaravel\dom_id;
+use function HotwiredLaravel\TurboLaravel\dom_id;
 
 /**
  * @property int $id
