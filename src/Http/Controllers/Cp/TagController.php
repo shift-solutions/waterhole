@@ -3,7 +3,7 @@
 namespace Waterhole\Http\Controllers\Cp;
 
 use Illuminate\Http\Request;
-use Tonysm\TurboLaravel\Http\TurboResponseFactory;
+use HotwiredLaravel\TurboLaravel\Http\TurboResponseFactory;
 use Waterhole\Forms\TagForm;
 use Waterhole\Models\Tag;
 use Waterhole\Models\Taxonomy;

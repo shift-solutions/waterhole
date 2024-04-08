@@ -5,7 +5,7 @@ namespace Waterhole\Http\Controllers;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
-use Tonysm\TurboLaravel\Http\TurboResponseFactory;
+use HotwiredLaravel\TurboLaravel\Http\TurboResponseFactory;
 use Waterhole\Actions\Action;
 use Waterhole\Extend;
 use Waterhole\View\Components\Alert;
@@ -26,13 +26,13 @@ class ActionsController extends Controller
 
         $actions = collect(Extend\Actions::for($models))
             ->filter(
-                fn($action) => !$action instanceof Action ||
+                fn ($action) => !$action instanceof Action ||
                     $action->shouldRender($models, $request->input('context')),
             )
             ->values();
 
         $actions = $actions->reject(
-            fn($action, $i) => $action instanceof MenuDivider &&
+            fn ($action, $i) => $action instanceof MenuDivider &&
                 ($i === 0 || $i === $actions->count() - 1),
         );
 
@@ -88,7 +88,7 @@ class ActionsController extends Controller
         // add on streams for any alerts that the action may have flashed.
         if (
             $request->wantsTurboStream() &&
-            ($streams = $models->flatMap(fn($item) => $action->stream($item))->all())
+            ($streams = $models->flatMap(fn ($item) => $action->stream($item))->all())
         ) {
             foreach (['success', 'warning', 'danger'] as $type) {
                 if ($message = session()->get($type)) {
