@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Validation\Rule;
 use Staudenmeir\LaravelAdjacencyList\Eloquent\HasRecursiveRelationships;
-use Tonysm\TurboLaravel\Models\Broadcasts;
+use HotwiredLaravel\TurboLaravel\Models\Broadcasts;
 use Waterhole\Events\NewComment;
 use Waterhole\Models\Concerns\HasBody;
 use Waterhole\Models\Concerns\NotificationContent;
@@ -189,7 +189,7 @@ class Comment extends Model
     protected function url(): Attribute
     {
         return Attribute::make(
-            get: fn() => route('waterhole.posts.comments.show', [
+            get: fn () => route('waterhole.posts.comments.show', [
                 'post' => $this->post,
                 'comment' => $this,
             ]),
@@ -199,7 +199,7 @@ class Comment extends Model
     protected function editUrl(): Attribute
     {
         return Attribute::make(
-            get: fn() => route('waterhole.posts.comments.edit', [
+            get: fn () => route('waterhole.posts.comments.edit', [
                 'post' => $this->post,
                 'comment' => $this,
             ]),
